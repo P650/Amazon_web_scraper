@@ -54,8 +54,13 @@ def call_me_pavan():
         writer.writerow(header)
         writer.writerow(data)
         
+        
 def main():
-    call_me_pavan()
-    
+    while(True):
+        call_me_pavan()
+        time.sleep(86400)
+        #it will print for every day on exact time
+        
+        
 if __name__  == "__main__":
     main()
