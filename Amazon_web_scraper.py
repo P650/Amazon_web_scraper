@@ -14,6 +14,21 @@ import time
 import datetime
 import csv
 
+def mail_me():
+    server = smtplib.SMTP_SSL('smtp.gmail.com',465)
+    server.ehlo()
+    #server.starttls()
+    server.ehlo()
+    server.login('kpkumbar99@gmail.com','xxxxxxxxxxxxxx')
+     
+    subject = "The Shirt you want is below $20! Now is your chance to buy!"
+    body = "This is the moment we have been waiting for. Now is your chance to pick up the shirt of your dreams. Don't mess it up! Link here: https://www.amazon.com/Funny-Data-Systems-Business-Analyst/dp/B07FNW9FGJ/ref=sr_1_3?dchild=1&keywords=data+analyst+tshirt&qid=1626655184&sr=8-3"
+    
+    msg = f"Subject: {subject}\n\n{body}"
+     
+    server.sendmail('kpkumbar99@gmail.com', msg )
+    
+
 def call_me_pavan():
     # connect to a web site we requires
     
@@ -54,6 +69,8 @@ def call_me_pavan():
         writer.writerow(header)
         writer.writerow(data)
         
+    if (price < 20):
+        mail_me()
         
 def main():
     while(True):
